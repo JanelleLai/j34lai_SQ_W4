@@ -12,9 +12,15 @@
 // This file contains functions to draw different screens in the game.
 // ------------------------------------------------------------
 
+let scene1Bg;
+
+function preload() {
+  scene1Bg = loadImage("assets/scene1.png");
+}
+
 // Function to draw the initial choice screen
 function drawStartScreen() {
-  background(100, 155, 100); // Enchanted forest background color
+  background(scene1Bg); // Enchanted forest background color
   fill(255);
   textSize(32);
   textAlign(CENTER);
