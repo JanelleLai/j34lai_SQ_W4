@@ -15,7 +15,7 @@
 let scene1Bg;
 
 function preload() {
-  scene1Bg = loadImage("assets/scene1.png");
+  scene1Bg = loadImage("assets/images/scene1.png");
 }
 
 // Function to draw the initial choice screen
