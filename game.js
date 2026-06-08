@@ -28,6 +28,7 @@ function playerChoose(choice) {
 
 // Function to reset the game
 function resetGame() {
+  console.log("Resetting game"); // Debugging
   playerChoice = null;
   currentSituation = null;
   currentOptions = [];
