@@ -82,10 +82,36 @@ function mousePressed() {
 
   // --- Situation screen ---
   if (gameState === STATE_SITUATION) {
-    if (isMouseOver(width / 2 - 100, height / 2 + 50, 240, 240)) {
-      handleOptionSelection(currentOptions[0]);
-    } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 240, 240)) {
-      handleOptionSelection(currentOptions[1]);
+    // If left option is full-canvas opt7:
+    if (currentOptions[0] === opt7) {
+      // small overlay on bottom-right for the other option:
+      if (
+        currentOptions[1] &&
+        isMouseOver(width - 120, height - 120, 200, 200)
+      ) {
+        handleOptionSelection(currentOptions[1]);
+      } else {
+        // anywhere else selects the full-canvas option
+        handleOptionSelection(currentOptions[0]);
+      }
+    }
+    // If right option is full-canvas opt7:
+    else if (currentOptions[1] === opt7) {
+      // small overlay on bottom-left for the other option:
+      if (currentOptions[0] && isMouseOver(120, height - 120, 200, 200)) {
+        handleOptionSelection(currentOptions[0]);
+      } else {
+        // anywhere else selects the full-canvas option
+        handleOptionSelection(currentOptions[1]);
+      }
+    }
+    // Normal case: two centered buttons
+    else {
+      if (isMouseOver(width / 2 - 100, height / 2 + 50, 240, 240)) {
+        handleOptionSelection(currentOptions[0]);
+      } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 240, 240)) {
+        handleOptionSelection(currentOptions[1]);
+      }
     }
     return;
   }

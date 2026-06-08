@@ -104,12 +104,27 @@ function drawSituationScreen() {
     background(150);
   }
 
-  const sizeA = currentOptions[0] === opt7 ? 800 : 450;
-  const sizeB = currentOptions[1] === opt7 ? 800 : 450;
-
-  // Display the options as image-buttons
-  drawImageButton(currentOptions[0], width / 2 - 100, height / 2 + 50);
-  drawImageButton(currentOptions[1], width / 2 + 100, height / 2 + 50);
+  // If either option is opt7, draw it full-canvas.
+  // Also draw the other option as a small overlay button so it remains selectable.
+  if (currentOptions[0] === opt7) {
+    imageMode(CORNER);
+    image(opt7, 0, 0, width, height);
+    // draw other option small bottom-right if present
+    if (currentOptions[1]) {
+      drawImageButton(currentOptions[1], width - 120, height - 120, 200, 200);
+    }
+  } else if (currentOptions[1] === opt7) {
+    imageMode(CORNER);
+    image(opt7, 0, 0, width, height);
+    // draw other option small bottom-left if present
+    if (currentOptions[0]) {
+      drawImageButton(currentOptions[0], 120, height - 120, 200, 200);
+    }
+  } else {
+    // default two centered option buttons
+    drawImageButton(currentOptions[0], width / 2 - 100, height / 2 + 50);
+    drawImageButton(currentOptions[1], width / 2 + 100, height / 2 + 50);
+  }
 }
 
 // Handle option selection: set global ending image and change state
@@ -176,8 +191,10 @@ function drawButton(label, x, y) {
 }
 
 // Helper: draw an image as a centered button (sizes must match mouse checks)
-function drawImageButton(img, x, y) {
+function drawImageButton(img, x, y, w = 240, h = 240) {
   if (!img) return;
+  push();
   imageMode(CENTER);
-  image(img, x, y, 240, 240); // button image size
+  image(img, x, y, w, h);
+  pop();
 }
