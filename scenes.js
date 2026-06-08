@@ -127,7 +127,7 @@ function handleOptionSelection(option) {
       break;
   }
   drawEndingScreen(endingImage);
-  gameState = "end";
+  gameState = STATE_END;
 }
 
 // Function to draw the ending screen

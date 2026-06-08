@@ -32,5 +32,6 @@ function resetGame() {
   playerChoice = null;
   currentSituation = null;
   currentOptions = [];
+  currentEndingImage = null; // clear ending image so drawEndingScreen won't try to use it
   gameState = STATE_START; // Reset to the start screen
 }
