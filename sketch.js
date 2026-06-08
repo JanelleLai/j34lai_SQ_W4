@@ -77,27 +77,30 @@ function mousePressed() {
     } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 150, 50)) {
       playerChoose(SMOOTH);
     }
+    return;
   }
 
   // --- Situation screen ---
-  else if (gameState === STATE_SITUATION) {
+  if (gameState === STATE_SITUATION) {
     if (isMouseOver(width / 2 - 100, height / 2 + 50, 240, 240)) {
       handleOptionSelection(currentOptions[0]);
     } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 240, 240)) {
       handleOptionSelection(currentOptions[1]);
     }
+    return;
   }
 
   // --- End screen ---
-  else if (gameState === STATE_END) {
+  if (gameState === STATE_END) {
     if (isMouseOver(width / 2, height - 50, 150, 50)) {
-      console.log("Play Again button clicked");
-      resetGame();
+      console.log("Play Again button clicked (mousePressed)");
+      resetGame(); // resets immediately; draw() will show start screen next frame
     }
+    return;
   }
 }
 
-// Helper function to check if the mouse is over a button
+// Helper function to check if the mouse is over a centered rectangle
 function isMouseOver(x, y, w, h) {
   return (
     mouseX > x - w / 2 &&

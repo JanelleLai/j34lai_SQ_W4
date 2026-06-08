@@ -20,18 +20,18 @@ function playerChoose(choice) {
   playerChoice = choice;
 
   if (playerChoice === ROUGH) {
-    handleRoughChoice(); // Call the function to handle ROUGH choice
+    handleRoughChoice();
   } else if (playerChoice === SMOOTH) {
-    handleSmoothChoice(); // Call the function to handle SMOOTH choice
+    handleSmoothChoice();
   }
 }
 
-// Function to reset the game
+// Function to reset the game back to scene1
 function resetGame() {
   console.log("Resetting game"); // Debugging
   playerChoice = null;
   currentSituation = null;
   currentOptions = [];
-  currentEndingImage = null; // clear ending image so drawEndingScreen won't try to use it
-  gameState = STATE_START; // Reset to the start screen
+  currentEndingImage = null; // clear ending image immediately
+  gameState = STATE_START; // go back to scene1
 }
