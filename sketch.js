@@ -72,9 +72,9 @@ function draw() {
 function mousePressed() {
   // --- Start screen ---
   if (gameState === STATE_START) {
-    if (isMouseOver(width / 2 - 100, height / 2 + 50, 150, 50)) {
+    if (isMouseOver(width / 2 - 100, 400, 150, 50)) {
       playerChoose(ROUGH);
-    } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 150, 50)) {
+    } else if (isMouseOver(width / 2 + 100, 400, 150, 50)) {
       playerChoose(SMOOTH);
     }
     return;

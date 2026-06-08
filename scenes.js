@@ -69,8 +69,8 @@ function drawStartScreen() {
   text("Choose your path:", width / 2, height / 2);
 
   // Draw buttons for choices
-  drawButton("ROUGH", width / 2 - 100, 300);
-  drawButton("SMOOTH", width / 2 + 100, 300);
+  drawButton("ROUGH", width / 2 - 100, 400);
+  drawButton("SMOOTH", width / 2 + 100, 400);
 }
 
 /// Handle the ROUGH choice
