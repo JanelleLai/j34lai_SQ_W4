@@ -150,5 +150,5 @@ function drawButton(label, x, y) {
 // Helper function to draw image buttons
 function drawImageButton(img, x, y) {
   imageMode(CENTER);
-  image(img, x, y, 150, 50);
+  image(img, x, y, 120, 120);
 }
