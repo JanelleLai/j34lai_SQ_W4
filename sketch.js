@@ -17,7 +17,6 @@
 
 // ------------------------------------------------------------
 // GAME STATES
-// The game moves through these states in order.
 // ------------------------------------------------------------
 const STATE_START = "start";
 const STATE_CHOICE = "choice";
@@ -28,10 +27,17 @@ let gameState = STATE_START;
 
 // ------------------------------------------------------------
 // BLOB ANIMATION TIMERS
-// Increase each frame to drive the blob wobble animation.
 // ------------------------------------------------------------
 let playerBlobT = 0;
 let npcBlobT = 50;
+
+// ============================================================
+// preload()
+// Loads assets before the sketch starts.
+// ============================================================
+function preload() {
+  preload(); // Call the preload function from scenes.js
+}
 
 // ============================================================
 // setup()
@@ -49,18 +55,12 @@ function setup() {
 // Calls drawing functions from scenes.js based on game state.
 // ============================================================
 function draw() {
-  // drawBackground() is defined in scenes.js
-  drawBackground();
-
-  // Switch between screens based on the current game state
   if (gameState === STATE_START) {
     drawStartScreen();
-  } else if (gameState === STATE_CHOICE) {
-    drawChoiceScreen();
   } else if (gameState === STATE_SITUATION) {
     drawSituationScreen();
   } else if (gameState === STATE_END) {
-    drawEndScreen();
+    drawEndingScreen();
   }
 
   // Advance blob animations every frame regardless of state
@@ -70,42 +70,41 @@ function draw() {
 
 // ============================================================
 // mousePressed()
-// A built-in p5.js event function.
-// Automatically called once every time the mouse is clicked.
 // Handles button clicks across all game states.
 // ============================================================
 function mousePressed() {
   // --- Start screen ---
   if (gameState === STATE_START) {
-    if (isMouseOver(width / 2, 390, 200, 52)) {
-      gameState = STATE_CHOICE;
-    }
-  }
-
-  // --- Choice screen ---
-  else if (gameState === STATE_CHOICE) {
-    if (isMouseOver(200, 360, 150, 52)) {
-      playerChoose("ROUGH");
-      gameState = STATE_SITUATION;
-    } else if (isMouseOver(400, 360, 150, 52)) {
-      playerChoose("SMOOTH");
-      gameState = STATE_SITUATION;
+    if (isMouseOver(width / 2 - 100, height / 2 + 50, 150, 50)) {
+      playerChoose(ROUGH);
+    } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 150, 50)) {
+      playerChoose(SMOOTH);
     }
   }
 
   // --- Situation screen ---
   else if (gameState === STATE_SITUATION) {
-    // Logic to handle situation outcomes based on player's choice
-    if (isMouseOver(width / 2, 390, 200, 52)) {
-      gameState = STATE_END;
+    if (isMouseOver(width / 2 - 100, height / 2 + 50, 150, 50)) {
+      handleOptionSelection(currentOptions[0]);
+    } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 150, 50)) {
+      handleOptionSelection(currentOptions[1]);
     }
   }
 
   // --- End screen ---
   else if (gameState === STATE_END) {
-    if (isMouseOver(width / 2, 390, 220, 52)) {
+    if (isMouseOver(width / 2, height - 50, 150, 50)) {
       resetGame();
-      gameState = STATE_START;
     }
   }
+}
+
+// Helper function to check if the mouse is over a button
+function isMouseOver(x, y, w, h) {
+  return (
+    mouseX > x - w / 2 &&
+    mouseX < x + w / 2 &&
+    mouseY > y - h / 2 &&
+    mouseY < y + h / 2
+  );
 }

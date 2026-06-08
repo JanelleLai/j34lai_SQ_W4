@@ -12,15 +12,43 @@
 // This file contains functions to draw different screens in the game.
 // ------------------------------------------------------------
 
-let scene1Bg;
+// Declare variables for all images
+let scene1Bg, sitA1, sitA2, sitB1, sitB2;
+let opt1, opt2, opt3, opt4, opt5, opt6, opt7, opt8;
+let end1, end2, end3, end4, end5, end6, end7, end8;
 
 function preload() {
-  scene1Bg = loadImage("assets/images/scene1.png");
+  // Load scene and situation images
+  scene1Bg = loadImage("assets/images/Scene1.png");
+  sitA1 = loadImage("assets/images/SitA1.png");
+  sitA2 = loadImage("assets/images/SitA2.png");
+  sitB1 = loadImage("assets/images/SitB1.png");
+  sitB2 = loadImage("assets/images/SitB2.png");
+
+  // Load option images
+  opt1 = loadImage("assets/images/Opt1.png");
+  opt2 = loadImage("assets/images/Opt2.png");
+  opt3 = loadImage("assets/images/Opt3.png");
+  opt4 = loadImage("assets/images/Opt4.png");
+  opt5 = loadImage("assets/images/Opt5.png");
+  opt6 = loadImage("assets/images/Opt6.png");
+  opt7 = loadImage("assets/images/Opt7.png");
+  opt8 = loadImage("assets/images/Opt8.png");
+
+  // Load ending images
+  end1 = loadImage("assets/images/End1.png");
+  end2 = loadImage("assets/images/End2.png");
+  end3 = loadImage("assets/images/End3.png");
+  end4 = loadImage("assets/images/End4.png");
+  end5 = loadImage("assets/images/End5.png");
+  end6 = loadImage("assets/images/End6.png");
+  end7 = loadImage("assets/images/End7.png");
+  end8 = loadImage("assets/images/End8.png");
 }
 
 // Function to draw the initial choice screen
 function drawStartScreen() {
-  background(scene1Bg); // Enchanted forest background color
+  background(scene1Bg); // Enchanted forest background
   fill(255);
   textSize(32);
   textAlign(CENTER);
@@ -29,52 +57,78 @@ function drawStartScreen() {
   text("Choose your path:", width / 2, height / 2);
 
   // Draw buttons for choices
-  drawButton("ROUGH", width / 2, height / 2 + 50);
-  drawButton("SMOOTH", width / 2, height / 2 + 100);
+  drawButton("ROUGH", width / 2 - 100, height / 2 + 50);
+  drawButton("SMOOTH", width / 2 + 100, height / 2 + 50);
 }
 
-// Function to draw the situation screen for ROUGH choice
-function drawRoughScreen() {
-  background(100, 155, 100);
-  fill(255);
-  textSize(32);
-  textAlign(CENTER);
-  text("You chose the ROUGH path!", width / 2, height / 2 - 50);
-  textSize(24);
-  text("You encounter a wild beast!", width / 2, height / 2);
-
-  // Draw buttons for outcomes
-  drawButton("Fight", width / 2, height / 2 + 50);
-  drawButton("Flee", width / 2, height / 2 + 100);
+// Function to handle the ROUGH choice
+function handleRoughChoice() {
+  currentSituation = random([sitA1, sitA2]); // Randomly select sitA1 or sitA2
+  if (currentSituation === sitA1) {
+    currentOptions = [opt1, opt2]; // Options for sitA1
+  } else {
+    currentOptions = [opt3, opt4]; // Options for sitA2
+  }
+  gameState = "situation";
 }
 
-// Function to draw the situation screen for SMOOTH choice
-function drawSmoothScreen() {
-  background(100, 155, 100);
-  fill(255);
-  textSize(32);
-  textAlign(CENTER);
-  text("You chose the SMOOTH path!", width / 2, height / 2 - 50);
-  textSize(24);
-  text("You find a hidden treasure!", width / 2, height / 2);
-
-  // Draw buttons for outcomes
-  drawButton("Take Treasure", width / 2, height / 2 + 50);
-  drawButton("Leave it", width / 2, height / 2 + 100);
+// Function to handle the SMOOTH choice
+function handleSmoothChoice() {
+  currentSituation = random([sitB1, sitB2]); // Randomly select sitB1 or sitB2
+  if (currentSituation === sitB1) {
+    currentOptions = [opt5, opt6]; // Options for sitB1
+  } else {
+    currentOptions = [opt7, opt8]; // Options for sitB2
+  }
+  gameState = "situation";
 }
 
-// Function to draw the ending screen based on the outcome
-function drawEndingScreen(outcome) {
-  background(100, 155, 100);
-  fill(255);
-  textSize(32);
-  textAlign(CENTER);
-  text("Game Over!", width / 2, height / 2 - 50);
-  textSize(24);
-  text(outcome, width / 2, height / 2);
+// Function to draw the situation screen
+function drawSituationScreen() {
+  background(currentSituation); // Set the current situation background
 
-  // Draw button to restart the game
-  drawButton("Play Again", width / 2, height / 2 + 50);
+  // Display the options as buttons
+  drawImageButton(currentOptions[0], width / 2 - 100, height / 2 + 50);
+  drawImageButton(currentOptions[1], width / 2 + 100, height / 2 + 50);
+}
+
+// Function to handle option selection
+function handleOptionSelection(option) {
+  let endingImage;
+  switch (option) {
+    case opt1:
+      endingImage = end1;
+      break;
+    case opt2:
+      endingImage = end2;
+      break;
+    case opt3:
+      endingImage = end3;
+      break;
+    case opt4:
+      endingImage = end4;
+      break;
+    case opt5:
+      endingImage = end5;
+      break;
+    case opt6:
+      endingImage = end6;
+      break;
+    case opt7:
+      endingImage = end7;
+      break;
+    case opt8:
+      endingImage = end8;
+      break;
+  }
+  drawEndingScreen(endingImage);
+  gameState = "end";
+}
+
+// Function to draw the ending screen
+function drawEndingScreen(endingImage) {
+  background(endingImage); // Display the ending image
+  drawButton("Play Again", width / 2, height - 50);
 }
 
 // Helper function to draw buttons
@@ -86,4 +140,10 @@ function drawButton(label, x, y) {
   textSize(20);
   textAlign(CENTER, CENTER);
   text(label, x, y);
+}
+
+// Helper function to draw image buttons
+function drawImageButton(img, x, y) {
+  imageMode(CENTER);
+  image(img, x, y, 150, 50);
 }
