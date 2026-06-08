@@ -133,7 +133,7 @@ function handleOptionSelection(option) {
 // Function to draw the ending screen
 function drawEndingScreen(endingImage) {
   imageMode(CENTER);
-  image(endingImage, width / 2, height / 2, 400, 300);
+  image(endingImage, width / 2, height / 2, 300, 300);
   drawButton("Play Again", width / 2, height - 50);
 }
 
