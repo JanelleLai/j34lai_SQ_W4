@@ -35,12 +35,6 @@ let npcBlobT = 50;
 // preload()
 // Loads assets before the sketch starts.
 // ============================================================
-function preload() {
-  // Call the preload function from scenes.js to load all assets
-  if (typeof window.preload === "function" && window.preload !== preload) {
-    window.preload(); // This calls the preload function defined in scenes.js
-  }
-}
 
 // ============================================================
 // setup()
