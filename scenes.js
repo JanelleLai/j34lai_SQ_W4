@@ -89,7 +89,8 @@ function handleSmoothChoice() {
 
 // Function to draw the situation screen
 function drawSituationScreen() {
-  background(currentSituation); // Set the current situation background
+  imageMode(CORNER); // Ensure the image is drawn from the top-left corner
+  image(currentSituation, 0, 0, width, height);
 
   // Display the options as buttons
   drawImageButton(currentOptions[0], width / 2 - 100, height / 2 + 50);

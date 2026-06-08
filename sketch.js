@@ -81,9 +81,9 @@ function mousePressed() {
 
   // --- Situation screen ---
   else if (gameState === STATE_SITUATION) {
-    if (isMouseOver(width / 2 - 100, height / 2 + 50, 150, 50)) {
+    if (isMouseOver(width / 2 - 100, height / 2 + 50, 240, 240)) {
       handleOptionSelection(currentOptions[0]);
-    } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 150, 50)) {
+    } else if (isMouseOver(width / 2 + 100, height / 2 + 50, 240, 240)) {
       handleOptionSelection(currentOptions[1]);
     }
   }
