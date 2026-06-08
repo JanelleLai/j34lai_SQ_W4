@@ -20,30 +20,30 @@ let end1, end2, end3, end4, end5, end6, end7, end8;
 function preload() {
   // Load scene and situation images
   scene1Bg = loadImage("assets/images/Scene1.png");
-  sitA1 = loadImage("assets/images/SitA1.png");
-  sitA2 = loadImage("assets/images/SitA2.png");
-  sitB1 = loadImage("assets/images/SitB1.png");
-  sitB2 = loadImage("assets/images/SitB2.png");
+  sitA1 = loadImage("assets/images/SitA1.PNG");
+  sitA2 = loadImage("assets/images/SitA2.PNG");
+  sitB1 = loadImage("assets/images/SitB1.PNG");
+  sitB2 = loadImage("assets/images/SitB2.PNG");
 
   // Load option images
-  opt1 = loadImage("assets/images/Opt1.png");
-  opt2 = loadImage("assets/images/Opt2.png");
-  opt3 = loadImage("assets/images/Opt3.png");
-  opt4 = loadImage("assets/images/Opt4.png");
-  opt5 = loadImage("assets/images/Opt5.png");
-  opt6 = loadImage("assets/images/Opt6.png");
-  opt7 = loadImage("assets/images/Opt7.png");
-  opt8 = loadImage("assets/images/Opt8.png");
+  opt1 = loadImage("assets/images/Opt1.PNG");
+  opt2 = loadImage("assets/images/Opt2.PNG");
+  opt3 = loadImage("assets/images/Opt3.PNG");
+  opt4 = loadImage("assets/images/Opt4.PNG");
+  opt5 = loadImage("assets/images/Opt5.PNG");
+  opt6 = loadImage("assets/images/Opt6.PNG");
+  opt7 = loadImage("assets/images/Opt7.PNG");
+  opt8 = loadImage("assets/images/Opt8.PNG");
 
   // Load ending images
-  end1 = loadImage("assets/images/End1.png");
-  end2 = loadImage("assets/images/End2.png");
-  end3 = loadImage("assets/images/End3.png");
-  end4 = loadImage("assets/images/End4.png");
-  end5 = loadImage("assets/images/End5.png");
-  end6 = loadImage("assets/images/End6.png");
-  end7 = loadImage("assets/images/End7.png");
-  end8 = loadImage("assets/images/End8.png");
+  end1 = loadImage("assets/images/End1.PNG");
+  end2 = loadImage("assets/images/End2.PNG");
+  end3 = loadImage("assets/images/End3.PNG");
+  end4 = loadImage("assets/images/End4.PNG");
+  end5 = loadImage("assets/images/End5.PNG");
+  end6 = loadImage("assets/images/End6.PNG");
+  end7 = loadImage("assets/images/End7.PNG");
+  end8 = loadImage("assets/images/End8.PNG");
 }
 
 // Function to draw the initial choice screen
