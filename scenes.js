@@ -64,7 +64,7 @@ function drawStartScreen() {
   fill(255);
   textSize(32);
   textAlign(CENTER);
-  text("Welcome to the Enchanted Forest!", width / 2, height / 2 - 50);
+  text("Welcome to the Enchanted Forest!", width / 2, 100);
   textSize(24);
   text("Choose your path:", width / 2, height / 2);
 
