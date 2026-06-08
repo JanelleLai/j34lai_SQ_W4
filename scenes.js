@@ -104,7 +104,7 @@ function drawSituationScreen() {
     background(150);
   }
 
-  const sizeA = currentOptions[0] === opt7 ? 180 : 240;
+  const sizeA = currentOptions[0] === opt7 ? 800 : 450;
   const sizeB = currentOptions[1] === opt7 ? 180 : 240;
 
   // Display the options as image-buttons
