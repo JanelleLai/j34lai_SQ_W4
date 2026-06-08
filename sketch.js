@@ -37,7 +37,7 @@ let npcBlobT = 50;
 // ============================================================
 function preload() {
   // Call the preload function from scenes.js to load all assets
-  if (typeof window.preload === "function") {
+  if (typeof window.preload === "function" && window.preload !== preload) {
     window.preload(); // This calls the preload function defined in scenes.js
   }
 }
