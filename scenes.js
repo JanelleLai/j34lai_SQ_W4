@@ -141,7 +141,7 @@ function drawEndingScreen(endingImage) {
 function drawButton(label, x, y) {
   fill(200);
   rectMode(CENTER);
-  rect(x, y, 150, 50, 10);
+  rect(x, y, 150, 50, 10); // Button dimensions: 150x50
   fill(0);
   textSize(20);
   textAlign(CENTER, CENTER);

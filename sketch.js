@@ -91,10 +91,8 @@ function mousePressed() {
   // --- End screen ---
   else if (gameState === STATE_END) {
     if (isMouseOver(width / 2, height - 50, 150, 50)) {
-      console.log("Play Again button clicked"); // Debugging
+      console.log("Play Again button clicked");
       resetGame();
-    } else {
-      console.log("Mouse not over Play Again button"); // Debugging
     }
   }
 }
