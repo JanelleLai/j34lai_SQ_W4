@@ -52,7 +52,6 @@ function drawStartScreen() {
     background(scene1Bg); // Use the image if it is loaded
   } else {
     background(200); // Fallback to a gray background if the image is not loaded
-    console.log("scene1Bg is not loaded");
   }
   fill(255);
   textSize(32);
