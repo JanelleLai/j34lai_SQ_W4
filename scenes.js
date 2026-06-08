@@ -146,7 +146,6 @@ function handleOptionSelection(option) {
 
 // Draw the ending screen using the global currentEndingImage
 function drawEndingScreen() {
-  background(200);
   imageMode(CENTER);
   if (currentEndingImage) {
     image(currentEndingImage, width / 2, height / 2, 300, 300);
