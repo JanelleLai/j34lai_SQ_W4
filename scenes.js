@@ -66,7 +66,7 @@ function drawStartScreen() {
   textAlign(CENTER);
   text("Welcome to the Enchanted Forest!", width / 2, 100);
   textSize(24);
-  text("Choose your path:", width / 2, 150);
+  text("Choose your path", width / 2, 150);
 
   // Draw buttons for choices
   drawButton("ROUGH", width / 2 - 100, 400);
